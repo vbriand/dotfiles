@@ -6,3 +6,4 @@
 
 - link:
     ~/.gitconfig: .gitconfig
+    ~/.gitignore: .gitignore
