@@ -1,0 +1,15 @@
+[user]
+	email = 678530+vbriand@users.noreply.github.com
+	name = Valentin Briand
+
+[pull]
+	rebase = true
+
+[core]
+	editor = emacs
+
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	st = status
