@@ -1,20 +1,20 @@
 - defaults:
     link:
-      relink: true
+        relink: true
 
 - shell:
     - command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-      description: Installing Oh My Zsh
-      quiet: true
-      stdout: true
-      stderr: true
+        description: Installing Oh My Zsh
+        quiet: true
+        stdout: true
+        stderr: true
 
 - shell:
     - command: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-      description: Installing p10k
-      quiet: true
-      stdout: true
-      stderr: true
+        description: Installing p10k
+        quiet: true
+        stdout: true
+        stderr: true
 
 - clean: ["~"]
 
@@ -22,11 +22,6 @@
     ~/.gitconfig: .gitconfig
     ~/.gitignore: .gitignore
     ~/.zshrc:
-      force: true
-      path: .zshrc
+        force: true
+        path: .zshrc
     ~/.p10k.zsh: .p10k.zsh
-
-- shell:
-    - command: echo -n
-      description: /!\ Restart zsh and run `p10k configure` /!\
-      quiet: true
