@@ -73,4 +73,4 @@ defaults write com.apple.dock autohide -bool true
 # Hide recent apps in the Dock
 defaults write com.apple.dock show-recents -bool false
 
-echo "Done. Please restart for all changes to take effect."
+echo "Done. Please restart the computer for all changes to take effect."
