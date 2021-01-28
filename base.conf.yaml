@@ -19,9 +19,10 @@
 - clean: ["~"]
 
 - link:
+    ~/.dotfiles: ""
     ~/.gitconfig: .gitconfig
     ~/.gitignore: .gitignore
+    ~/.p10k.zsh: .p10k.zsh
     ~/.zshrc:
         force: true
         path: .zshrc
-    ~/.p10k.zsh: .p10k.zsh
