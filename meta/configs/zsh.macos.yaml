@@ -1,0 +1,9 @@
+- shell:
+    - sudo dscl . -create /Users/$USER UserShell $(brew --prefix)/bin/zsh
+    - chmod 711 $(brew --prefix)/share/zsh $(brew --prefix)/share/zsh/site-functions
+
+- tap:
+    - romkatv/powerlevel10k
+
+- brew:
+    - romkatv/powerlevel10k/powerlevel10k

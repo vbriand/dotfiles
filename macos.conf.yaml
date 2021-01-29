@@ -1,6 +1,0 @@
-- brew: [emacs, git, n, tldr, yarn, zsh]
-
-- cask: [appcleaner, google-chrome, iterm2, kap, rectangle, visual-studio-code]
-
-- shell:
-    - ./macos.sh

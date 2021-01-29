@@ -1,0 +1,12 @@
+- link:
+    ~/.p10k.zsh: .p10k.zsh
+    ~/.zshrc:
+      force: true
+      path: .zshrc
+
+- shell:
+    - command: test ! -d $HOME/.oh-my-zsh && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || echo "Oh My Zsh already installed, skipping installation"
+      description: Installing Oh My Zsh
+      quiet: true
+      stdout: true
+      stderr: true
