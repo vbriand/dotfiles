@@ -1,0 +1,6 @@
+- shell:
+    - command: ./macos.sh
+      description: Setting macOS system preferences
+      quiet: true
+      stdout: true
+      stderr: true
