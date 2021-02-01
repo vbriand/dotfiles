@@ -3,6 +3,3 @@
       relink: true
 
 - clean: ["~"]
-
-- link:
-    ~/.dotfiles: ""
