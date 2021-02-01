@@ -33,6 +33,9 @@ defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryCli
 defaults write -g KeyRepeat -int 2
 defaults write -g InitialKeyRepeat -int 15
 
+# Set function keys as default on Touch Bar
+defaults write com.apple.touchbar.agent PresentationModeGlobal -string "functionKeys"
+
 # Set language and text formats
 defaults write NSGlobalDomain AppleLanguages -array "fr-FR" "en-FR"
 defaults write NSGlobalDomain AppleLocale -string "fr_FR"
