@@ -2,4 +2,4 @@ homebrew
 git
 zsh
 zsh.macos
-prefs.macos
+macos_defaults

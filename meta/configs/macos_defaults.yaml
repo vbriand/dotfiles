@@ -1,5 +1,5 @@
 - shell:
-    - command: ./macos.sh
+    - command: ./os/macos/macos.sh
       description: Setting macOS system preferences
       quiet: true
       stdout: true
