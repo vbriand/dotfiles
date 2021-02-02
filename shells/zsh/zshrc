@@ -6,18 +6,24 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 if [[ -e /opt/homebrew/bin ]]; then
-  export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+  export PATH=/opt/homebrew/bin:$PATH
+  
+  if [[ -e /opt/homebrew/sbin ]]; then
+    export PATH=/opt/homebrew/sbin:$PATH
+  fi
 fi
 
 if [[ -e $HOME/.npm_global/bin ]]; then
   export PATH=$HOME/.npm-global/bin:$PATH
 fi
 
-export ANDROID_HOME=$HOME/Workspace/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+if [[ -e $HOME/Workspace/android/sdk ]]; then
+  export ANDROID_HOME=$HOME/Workspace/android/sdk
+  export PATH=$PATH:$ANDROID_HOME/emulator
+  export PATH=$PATH:$ANDROID_HOME/tools
+  export PATH=$PATH:$ANDROID_HOME/tools/bin
+  export PATH=$PATH:$ANDROID_HOME/platform-tools
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
