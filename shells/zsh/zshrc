@@ -17,12 +17,16 @@ if [[ -e $HOME/.npm_global/bin ]]; then
   export PATH=$HOME/.npm-global/bin:$PATH
 fi
 
-if [[ -e $HOME/Workspace/android/sdk ]]; then
-  export ANDROID_HOME=$HOME/Workspace/android/sdk
+if [[ -e $HOME/Library/Android/sdk ]]; then
+  export ANDROID_HOME=$HOME/Library/Android/sdk
   export PATH=$PATH:$ANDROID_HOME/emulator
   export PATH=$PATH:$ANDROID_HOME/tools
   export PATH=$PATH:$ANDROID_HOME/tools/bin
   export PATH=$PATH:$ANDROID_HOME/platform-tools
+fi
+
+if [[ -e /usr/local/texlive/2020/bin/x86_64-darwin ]]; then
+  export PATH=$PATH:/usr/local/texlive/2020/bin/x86_64-darwin
 fi
 
 # Path to your oh-my-zsh installation.
