@@ -1,6 +1,7 @@
 [user]
 	email = 678530+vbriand@users.noreply.github.com
 	name = Valentin Briand
+	signingkey = 2708255FFF876F95
 
 [pull]
 	rebase = true
@@ -17,3 +18,6 @@
 
 [init]
 	defaultBranch = master
+
+[commit]
+	gpgsign = true
