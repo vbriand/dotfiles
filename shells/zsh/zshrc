@@ -13,6 +13,14 @@ if [[ -e /opt/homebrew/bin ]]; then
   fi
 fi
 
+if [[ -e /opt/homebrew/opt/ruby/bin ]]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+
+  if [[ -e /opt/homebrew/lib/ruby/gems/3.0.0/bin ]]; then
+    export PATH=/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH
+  fi
+fi
+
 if [[ -e $HOME/.npm_global/bin ]]; then
   export PATH=$HOME/.npm-global/bin:$PATH
 fi
