@@ -1,5 +1,6 @@
 - link:
     ~/.p10k.zsh: shells/zsh/p10k.zsh
+    ~/.zshenv: shells/zsh/zshenv
     ~/.zshrc:
       force: true
       path: shells/zsh/zshrc
