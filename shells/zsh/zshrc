@@ -26,11 +26,12 @@ if [[ -e $HOME/.npm_global/bin ]]; then
 fi
 
 if [[ -e $HOME/Library/Android/sdk ]]; then
-  export ANDROID_HOME=$HOME/Library/Android/sdk
-  export PATH=$PATH:$ANDROID_HOME/emulator
-  export PATH=$PATH:$ANDROID_HOME/tools
-  export PATH=$PATH:$ANDROID_HOME/tools/bin
-  export PATH=$PATH:$ANDROID_HOME/platform-tools
+  export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+  export ANDROID_HOME=$ANDROID_SDK_ROOT
+  export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+  export PATH=$PATH:$ANDROID_SDK_ROOT/tools
+  export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+  export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 fi
 
 if [[ -e /usr/local/texlive/2020/bin/x86_64-darwin ]]; then
@@ -109,6 +110,7 @@ setopt share_history
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 
 # You may need to manually set your language environment
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Compilation flags
