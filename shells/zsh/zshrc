@@ -5,14 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ -e /opt/homebrew/opt/ruby/bin ]]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-
-  if [[ -e /opt/homebrew/lib/ruby/gems/3.0.0/bin ]]; then
-    export PATH=/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH
-  fi
-fi
-
 if [[ -e /opt/homebrew/bin ]]; then
   export PATH=/opt/homebrew/bin:$PATH
 
@@ -37,6 +29,9 @@ fi
 if [[ -e /usr/local/texlive/2020/bin/x86_64-darwin ]]; then
   export PATH=$PATH:/usr/local/texlive/2020/bin/x86_64-darwin
 fi
+
+# https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -129,3 +124,5 @@ alias cat="bat"
 source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
