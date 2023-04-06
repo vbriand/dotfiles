@@ -1,0 +1,5 @@
+- brewfile:
+    - dev/macos/tools/Brewfile
+
+- link:
+    ~/.asdfrc: dev/macos/tools/asdfrc
