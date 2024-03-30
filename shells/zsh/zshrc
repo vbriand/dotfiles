@@ -6,28 +6,27 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 if [[ -e /opt/homebrew/bin ]]; then
-  export PATH=/opt/homebrew/bin:$PATH
+  [[ ":$PATH:" =~ ":/opt/homebrew/bin" ]] || PATH="/opt/homebrew/bin:$PATH"
 
   if [[ -e /opt/homebrew/sbin ]]; then
-    export PATH=/opt/homebrew/sbin:$PATH
+    [[ ":$PATH:" =~ ":/opt/homebrew/sbin" ]] || PATH="/opt/homebrew/sbin:$PATH"
   fi
 fi
 
-if [[ -e $HOME/.npm_global/bin ]]; then
-  export PATH=$HOME/.npm-global/bin:$PATH
+if [[ -e $HOME/.bun/bin ]]; then
+  [[ ":$PATH:" =~ ":$HOME/.bun/bin" ]] || PATH="$HOME/.bun/bin:$PATH"
 fi
 
 if [[ -e $HOME/Library/Android/sdk ]]; then
   export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-  export ANDROID_HOME=$ANDROID_SDK_ROOT
-  export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-  export PATH=$PATH:$ANDROID_SDK_ROOT/tools
-  export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
-  export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+  [[ ":$PATH:" =~ ":$ANDROID_SDK_ROOT/emulator" ]] || PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
+  [[ ":$PATH:" =~ ":$ANDROID_SDK_ROOT/tools" ]] || PATH="$PATH:$ANDROID_SDK_ROOT/tools"
+  [[ ":$PATH:" =~ ":$ANDROID_SDK_ROOT/tools/bin" ]] || PATH="$PATH:$ANDROID_SDK_ROOT/tools/bin"
+  [[ ":$PATH:" =~ ":$ANDROID_SDK_ROOT/platform-tools" ]] || PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
 fi
 
 if [[ -e /usr/local/texlive/2020/bin/x86_64-darwin ]]; then
-  export PATH=$PATH:/usr/local/texlive/2020/bin/x86_64-darwin
+  [[ ":$PATH:" =~ ":/usr/local/texlive/2020/bin/x86_64-darwin" ]] || PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-darwin"
 fi
 
 # https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
