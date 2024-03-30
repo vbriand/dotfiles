@@ -125,4 +125,4 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+eval "$(mise activate zsh)"
