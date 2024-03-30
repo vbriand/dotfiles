@@ -6,6 +6,9 @@
 [pull]
 	rebase = true
 
+[push]
+	autoSetupRemote = true # https://stackoverflow.com/a/17096880/10927329
+
 [core]
 	editor = emacs
 	excludesfile = ~/.gitignore_global
@@ -15,9 +18,27 @@
 	ci = commit
 	co = checkout
 	st = status
+	su = "!f() {								\
+    git stash;								\
+    git stash -u;							\
+    git stash pop stash@{1};	\
+	}; f" # Stash only untracked files
+	snsu = "!f() {							\
+    git stash push --staged;	\
+    git stash -u;							\
+    git stash pop stash@{1};	\
+	}; f" # Stash changes not staged for commit and untracked files
+	sns = "!f() {							\
+    git stash push --staged;	\
+    git stash -u;							\
+    git stash pop stash@{1};	\
+	}; f" # Stash changes not staged for commit
 
 [init]
 	defaultBranch = master
 
 [commit]
 	gpgsign = true
+
+[includeIf "hasconfig:remote.*.url:git@gitlab.mzrn.net:*/**"]
+	path = ~/.gitconfig-mazarine
