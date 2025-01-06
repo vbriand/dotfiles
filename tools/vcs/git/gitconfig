@@ -18,21 +18,25 @@
 	ci = commit
 	co = checkout
 	st = status
-	su = "!f() {								\
-    git stash;								\
-    git stash -u;							\
+	su = "!f() {		\
+    git stash;			\
+    git stash -u;		\
     git stash pop stash@{1};	\
 	}; f" # Stash only untracked files
-	snsu = "!f() {							\
+	snsu = "!f() {		\
     git stash push --staged;	\
-    git stash -u;							\
+    git stash -u;		\
     git stash pop stash@{1};	\
 	}; f" # Stash changes not staged for commit and untracked files
-	sns = "!f() {							\
+	sns = "!f() {		\
     git stash push --staged;	\
-    git stash -u;							\
+    git stash;			\
     git stash pop stash@{1};	\
 	}; f" # Stash changes not staged for commit
+	sw = switch
+	wta = worktree add
+	wtl = worktree list
+	wtr = worktree remove
 
 [init]
 	defaultBranch = master
