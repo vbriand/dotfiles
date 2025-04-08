@@ -25,10 +25,6 @@ if [[ -e $HOME/Library/Android/sdk ]]; then
   [[ ":$PATH:" =~ ":$ANDROID_SDK_ROOT/platform-tools" ]] || PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
 fi
 
-if [[ -e /usr/local/texlive/2020/bin/x86_64-darwin ]]; then
-  [[ ":$PATH:" =~ ":/usr/local/texlive/2020/bin/x86_64-darwin" ]] || PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-darwin"
-fi
-
 # https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
