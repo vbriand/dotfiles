@@ -43,7 +43,7 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
-    LC_CTYPE = "fr_FR.UTF8";
+    LC_CTYPE = "fr_FR.UTF-8";
     LC_ADDRESS = "fr_FR.UTF-8";
     LC_IDENTIFICATION = "fr_FR.UTF-8";
     LC_MEASUREMENT = "fr_FR.UTF-8";
