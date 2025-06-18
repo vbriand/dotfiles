@@ -1,6 +1,0 @@
-- shell:
-    - command: ./os/macos/macos_defaults.sh
-      description: Setting macOS system preferences
-      quiet: true
-      stdout: true
-      stderr: true
