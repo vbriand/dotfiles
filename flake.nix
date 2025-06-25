@@ -12,18 +12,19 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
-  outputs = { self, chaotic, disko, zen-browser, nixpkgs } @ inputs: {
-    nixosConfigurations.hogwarts = (import nixpkgs {
-      	system = "x86_64-linux";
-      	specialArgs = {
-          inherit inputs;
-      	};
-	config.allowUnfree = true;
-    }).nixos [
-      ./configuration.nix
-      chaotic.nixosModules.default
-      disko.nixosModules.disko
-      {
+  outputs = { self, chaotic, disko, zen-browser, nixpkgs } @ inputs: let
+    system = "x86_64-linux";
+
+    in {
+      nixosConfigurations.hogwarts = nixpkgs.lib.nixosSystem {
+        inherit system;
+
+        specialArgs = { inherit inputs system; };
+        modules = [
+          ./configuration.nix
+          chaotic.nixosModules.default
+          disko.nixosModules.disko
+          {
         disko.devices = {
           disk = {
             main = {
@@ -82,4 +83,5 @@
       }
     ];
   };
+};
 }

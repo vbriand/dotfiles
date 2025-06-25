@@ -93,6 +93,8 @@
   hardware.xone.enable = true;
   hardware.cpu.amd.ryzen-smu.enable = true; # https://github.com/svenlange2/Ryzen-5800x3d-linux-undervolting
 
+  nixpkgs.config.allowUnfree = true;
+
   environment = {
     plasma6.excludePackages = with pkgs.kdePackages; [
       plasma-browser-integration
