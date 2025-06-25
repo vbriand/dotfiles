@@ -224,6 +224,12 @@
   programs.gamescope.enable = true;
   programs.streamcontroller.enable = true;
   programs.dconf.enable = true;
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep 25";
+    flake = "/etc/nixos";
+  };
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     alsa-lib
