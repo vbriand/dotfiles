@@ -56,9 +56,6 @@
     LC_TIME = "fr_FR.UTF-8";
     LC_COLLATE = "fr_FR.UTF-8";
   };
-  #i18n.extraLocaleSettings = {
-  #  LC_CTYPE = lib.mkDefault "fr_FR.UTF-8"; # Fix ç in us-intl.
-  #};
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
