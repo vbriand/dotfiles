@@ -15,7 +15,7 @@
     efi.canTouchEfiVariables = true;
     systemd-boot = {
       enable = true;
-      configurationLimit = 15;
+      configurationLimit = 15; # Maximum number of boot entries
     };
   };
 
