@@ -10,13 +10,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, chaotic, disko, zen-browser, nixpkgs } @ inputs: let
-    system = "x86_64-linux";
-
+  outputs = { self, chaotic, disko, home-manager, zen-browser, nixpkgs } @ inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
     in {
-      nixosConfigurations.hogwarts = nixpkgs.lib.nixosSystem {
+      nixosConfigurations = {
+      	hogwarts = nixpkgs.lib.nixosSystem {
         inherit system;
 
         specialArgs = { inherit inputs system; };
@@ -82,6 +88,14 @@
         };
       }
     ];
+  };
+  };
+  homeConfigurations = {
+    valou = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+
+      modules = [ ./home.nix ];
+    };
   };
 };
 }
