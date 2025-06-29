@@ -228,7 +228,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep 25";
-    flake = "/etc/nixos";
+    flake = "/home/valou/.dotfiles";
   };
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
