@@ -224,7 +224,7 @@
   #  };
   #};
   programs.gamescope.enable = true;
-  programs.streamcontroller.enable = true;
+  # programs.streamcontroller.enable = true;
   programs.dconf.enable = true;
   programs.nh = {
     enable = true;
