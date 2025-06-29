@@ -121,6 +121,7 @@
 	samrewritten
 	snapper
 	snapper-gui
+	steamtinkerlaunch
 	syncthingtray
 	tealdeer
 	teamspeak3
