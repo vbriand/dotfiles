@@ -17,10 +17,8 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+  home.packages = with pkgs; [
+    nixfmt-rfc-style
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -71,6 +69,30 @@
     # EDITOR = "emacs";
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.vscode = {
+    enable = true;
+    profiles = {
+      default = {
+        enableExtensionUpdateCheck = false;
+        enableUpdateCheck = false;
+        userSettings = {
+          "telemetry.telemetryLevel" = "off";
+        };
+      };
+      Nix = {
+        extensions = with pkgs.vscode-extensions; [
+          jnoortheen.nix-ide
+          johnpapa.winteriscoming
+        ];
+        userSettings = {
+          "editor.formatOnSave" = true;
+          "workbench.colorTheme" = "Winter is Coming (Dark Blue)";
+        };
+      };
+    };
+  };
 }
