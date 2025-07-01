@@ -87,6 +87,7 @@
         extensions = with pkgs.vscode-extensions; [
           jnoortheen.nix-ide
           johnpapa.winteriscoming
+          streetsidesoftware.code-spell-checker
         ];
         userSettings = {
           "editor.formatOnSave" = true;
