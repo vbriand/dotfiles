@@ -2,13 +2,19 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
@@ -20,7 +26,7 @@
   };
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_cachyos; #pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos; # pkgs.linuxPackages_latest;
 
   boot.kernelParams = [
     "amdgpu.dcdebugmask=0x10"
@@ -31,7 +37,7 @@
   networking.hostName = "hogwarts"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -98,43 +104,43 @@
       kdepim-runtime
     ];
     systemPackages = with pkgs; [
-    	anytype
-    	boilr
-	caprine
-	discord
-        emacs-nox
-        git
-        hardinfo2 # System information and benchmarks for Linux systems
-	heroic
-	kodi-wayland
-	kodiPackages.pvr-hts
-        kdePackages.kcalc # Calculator
-        kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
-        kdePackages.sddm-kcm # Configuration module for SDDM
-        kdePackages.partitionmanager # Optional Manage the disk devices, partitions and file systems on your computer
-	# kdotool # Enable automatic page switching for streamcontroller
-	lact # GPU metrics and overclocking
-	ludusavi
-	obsidian
-	piper # Mouse configuration GUI
-	protonplus
-	samrewritten
-	snapper
-	snapper-gui
-	steamtinkerlaunch
-	syncthingtray
-	tealdeer
-	teamspeak3
-        wayland-utils # Wayland utilities
-        wget
-        wl-clipboard # Command-line copy/paste utilities for Wayland
-  	#zen-browser.packages."x86_64-linux".default.override {
-    	#  policies = {
-      	#    DisableAppUpdate = true;
-      	#    DisableTelemetry = true;
-    	#  };
-  	#}
-      ];
+      anytype
+      boilr
+      caprine
+      discord
+      emacs-nox
+      git
+      hardinfo2 # System information and benchmarks for Linux systems
+      heroic
+      kodi-wayland
+      kodiPackages.pvr-hts
+      kdePackages.kcalc # Calculator
+      kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
+      kdePackages.sddm-kcm # Configuration module for SDDM
+      kdePackages.partitionmanager # Optional Manage the disk devices, partitions and file systems on your computer
+      # kdotool # Enable automatic page switching for streamcontroller
+      lact # GPU metrics and overclocking
+      ludusavi
+      obsidian
+      piper # Mouse configuration GUI
+      protonplus
+      samrewritten
+      snapper
+      snapper-gui
+      steamtinkerlaunch
+      syncthingtray
+      tealdeer
+      teamspeak3
+      wayland-utils # Wayland utilities
+      wget
+      wl-clipboard # Command-line copy/paste utilities for Wayland
+      #zen-browser.packages."x86_64-linux".default.override {
+      #  policies = {
+      #    DisableAppUpdate = true;
+      #    DisableTelemetry = true;
+      #  };
+      #}
+    ];
     variables = {
       GTK_IM_MODULE = "cedilla";
       QT_IM_MODULE = "cedilla";
@@ -144,8 +150,8 @@
   systemd.services = {
     lact = {
       description = "AMDGPU Control Daemon";
-      after = ["multi-user.target"];
-      wantedBy = ["multi-user.target"];
+      after = [ "multi-user.target" ];
+      wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         ExecStart = "${pkgs.lact}/bin/lact daemon";
       };
@@ -154,7 +160,10 @@
     syncthing.environment.STNODEFAULTFOLDER = "true"; # Don't create default ~/Sync folder
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -188,9 +197,9 @@
       "i2c"
       # "gamemode"
     ];
-  #   packages = with pkgs; [
-  #     tree
-  #   ];
+    #   packages = with pkgs; [
+    #     tree
+    #   ];
   };
 
   programs.firefox.enable = true;
@@ -310,4 +319,3 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-

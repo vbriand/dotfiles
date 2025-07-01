@@ -16,86 +16,99 @@
     };
   };
 
-  outputs = { self, chaotic, disko, home-manager, zen-browser, nixpkgs } @ inputs:
+  outputs =
+    {
+      self,
+      chaotic,
+      disko,
+      home-manager,
+      zen-browser,
+      nixpkgs,
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
+    in
+    {
       nixosConfigurations = {
-      	hogwarts = nixpkgs.lib.nixosSystem {
-        inherit system;
+        hogwarts = nixpkgs.lib.nixosSystem {
+          inherit system;
 
-        specialArgs = { inherit inputs system; };
-        modules = [
-          ./configuration.nix
-          chaotic.nixosModules.default
-          disko.nixosModules.disko
-          {
-        disko.devices = {
-          disk = {
-            main = {
-              # When using disko-install, we will overwrite this value from the commandline
-              device = "/dev/disk/by-id/nvme-Samsung_SSD_990_EVO_Plus_2TB_S7U7NU0Y417341K";
-              type = "disk";
-              content = {
-                type = "gpt";
-                partitions = {
-                  ESP = {
-                    priority = 1;
-                    size = "1G";
-                    type = "EF00";
+          specialArgs = { inherit inputs system; };
+          modules = [
+            ./configuration.nix
+            chaotic.nixosModules.default
+            disko.nixosModules.disko
+            {
+              disko.devices = {
+                disk = {
+                  main = {
+                    # When using disko-install, we will overwrite this value from the commandline
+                    device = "/dev/disk/by-id/nvme-Samsung_SSD_990_EVO_Plus_2TB_S7U7NU0Y417341K";
+                    type = "disk";
                     content = {
-                      type = "filesystem";
-                      format = "vfat";
-                      mountpoint = "/boot";
-                      mountOptions = [ "umask=0077" ];
-                    };
-                  };
-                  root = {
-                    size = "100%";
-                    content = {
-                      type = "btrfs";
-                      extraArgs = [ "-f" "-L" "NixOS" ];
-                      subvolumes = {
-                        "/rootfs" = {
-                          mountpoint = "/";
+                      type = "gpt";
+                      partitions = {
+                        ESP = {
+                          priority = 1;
+                          size = "1G";
+                          type = "EF00";
+                          content = {
+                            type = "filesystem";
+                            format = "vfat";
+                            mountpoint = "/boot";
+                            mountOptions = [ "umask=0077" ];
+                          };
                         };
-                        "/home" = {
-                          mountOptions = [ "compress=zstd" ];
-                          mountpoint = "/home";
-                        };
-                        # "/home/valou" = { };
-                        "/nix" = {
-                          mountOptions = [
-                            "compress=zstd"
-                            "noatime"
-                          ];
-                          mountpoint = "/nix";
-                        };
-                        "/log" = {
-                          mountOptions = [ "compress=zstd" ];
-                          mountpoint = "/var/log";
+                        root = {
+                          size = "100%";
+                          content = {
+                            type = "btrfs";
+                            extraArgs = [
+                              "-f"
+                              "-L"
+                              "NixOS"
+                            ];
+                            subvolumes = {
+                              "/rootfs" = {
+                                mountpoint = "/";
+                              };
+                              "/home" = {
+                                mountOptions = [ "compress=zstd" ];
+                                mountpoint = "/home";
+                              };
+                              # "/home/valou" = { };
+                              "/nix" = {
+                                mountOptions = [
+                                  "compress=zstd"
+                                  "noatime"
+                                ];
+                                mountpoint = "/nix";
+                              };
+                              "/log" = {
+                                mountOptions = [ "compress=zstd" ];
+                                mountpoint = "/var/log";
+                              };
+                            };
+
+                            mountpoint = "/partition-root";
+                          };
                         };
                       };
-
-                      mountpoint = "/partition-root";
                     };
                   };
                 };
               };
-            };
-          };
+            }
+          ];
         };
-      }
-    ];
-  };
-  };
-  homeConfigurations = {
-    valou = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+      };
+      homeConfigurations = {
+        valou = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
 
-      modules = [ ./home.nix ];
+          modules = [ ./home.nix ];
+        };
+      };
     };
-  };
-};
 }
