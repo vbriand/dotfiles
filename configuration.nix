@@ -102,45 +102,49 @@
     plasma6.excludePackages = with pkgs.kdePackages; [
       plasma-browser-integration
       kdepim-runtime
+      konsole
     ];
-    systemPackages = with pkgs; [
-      anytype
-      boilr
-      caprine
-      discord
-      emacs-nox
-      git
-      hardinfo2 # System information and benchmarks for Linux systems
-      heroic
-      kodi-wayland
-      kodiPackages.pvr-hts
-      kdePackages.kcalc # Calculator
-      kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
-      kdePackages.sddm-kcm # Configuration module for SDDM
-      kdePackages.partitionmanager # Optional Manage the disk devices, partitions and file systems on your computer
-      # kdotool # Enable automatic page switching for streamcontroller
-      lact # GPU metrics and overclocking
-      ludusavi
-      obsidian
-      piper # Mouse configuration GUI
-      protonplus
-      samrewritten
-      snapper
-      snapper-gui
-      steamtinkerlaunch
-      syncthingtray
-      tealdeer
-      teamspeak3
-      wayland-utils # Wayland utilities
-      wget
-      wl-clipboard # Command-line copy/paste utilities for Wayland
-      #zen-browser.packages."x86_64-linux".default.override {
-      #  policies = {
-      #    DisableAppUpdate = true;
-      #    DisableTelemetry = true;
-      #  };
-      #}
-    ];
+    systemPackages =
+      with pkgs;
+      [
+        anytype
+        boilr
+        caprine
+        discord
+        emacs-nox
+        git
+        hardinfo2 # System information and benchmarks for Linux systems
+        heroic
+        kodi-wayland
+        kodiPackages.pvr-hts
+        kdePackages.kcalc # Calculator
+        kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
+        kdePackages.sddm-kcm # Configuration module for SDDM
+        kdePackages.partitionmanager # Optional Manage the disk devices, partitions and file systems on your computer
+        # kdotool # Enable automatic page switching for streamcontroller
+        lact # GPU metrics and overclocking
+        ludusavi
+        obsidian
+        piper # Mouse configuration GUI
+        protonplus
+        samrewritten
+        snapper
+        snapper-gui
+        steamtinkerlaunch
+        syncthingtray
+        tealdeer
+        teamspeak3
+        wayland-utils # Wayland utilities
+        wget
+        wl-clipboard # Command-line copy/paste utilities for Wayland
+        #zen-browser.packages."x86_64-linux".default.override {
+        #  policies = {
+        #    DisableAppUpdate = true;
+        #    DisableTelemetry = true;
+        #  };
+        #}
+      ]
+      ++ [ inputs.ghostty.packages.${system}.default ];
     variables = {
       GTK_IM_MODULE = "cedilla";
       QT_IM_MODULE = "cedilla";
