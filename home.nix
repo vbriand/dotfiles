@@ -1,6 +1,15 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  zen-browser,
+  ...
+}:
 
 {
+  imports = [
+    zen-browser.homeModules.beta
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "valou";
@@ -134,4 +143,57 @@
         };
       };
     };
+  programs.zen-browser = {
+    enable = true;
+    policies = {
+      AutofillAddressEnabled = false;
+      AutofillCreditCardEnabled = false;
+      DisableAppUpdate = true;
+      DisableFeedbackCommands = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DontCheckDefaultBrowser = true;
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
+      ExtensionSettings = {
+        "firefox@betterttv.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/betterttv/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "jetpack-extension@dashlane.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/dashlane/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "reddit-url-redirector@kichkoupi.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/reddituntranslate/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "sponsorBlocker@ajay.app" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "uBlock0@raymondhill.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "{458160b9-32eb-4f4c-87d1-89ad3bdeb9dc}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/youtube-anti-translate/latest.xpi";
+          installation_mode = "force_installed";
+        };
+      };
+      # Dealabs
+      # DeepL
+      # SpotiAds
+      # Tab Session Manager
+      # Tampermonkey
+      # wanteeed
+    };
+  };
 }

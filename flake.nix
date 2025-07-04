@@ -112,6 +112,7 @@
         valou = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
+          extraSpecialArgs = { inherit zen-browser; };
           modules = [ ./home.nix ];
         };
       };
