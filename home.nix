@@ -18,7 +18,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    nixfmt-rfc-style
+    nixfmt-rfc-style # Nix formatter
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -73,27 +73,65 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.vscode = {
-    enable = true;
-    profiles = {
-      default = {
-        enableExtensionUpdateCheck = false;
-        enableUpdateCheck = false;
-        userSettings = {
-          "telemetry.telemetryLevel" = "off";
-        };
+  programs.vscode =
+    let
+      commonExtensions = with pkgs.vscode-extensions; [
+        johnpapa.winteriscoming
+        # leodevbro.blockman
+        pkief.material-icon-theme
+        streetsidesoftware.code-spell-checker
+        tuttieee.emacs-mcx
+      ];
+      commonUserSettings = {
+        "editor.formatOnSave" = true;
+        "terminal.integrated.allowChords" = false;
+        "workbench.colorTheme" = "Winter is Coming (Dark Blue)";
       };
-      Nix = {
-        extensions = with pkgs.vscode-extensions; [
-          jnoortheen.nix-ide
-          johnpapa.winteriscoming
-          streetsidesoftware.code-spell-checker
-        ];
-        userSettings = {
-          "editor.formatOnSave" = true;
-          "workbench.colorTheme" = "Winter is Coming (Dark Blue)";
+    in
+    {
+      enable = true;
+      profiles = {
+        default = {
+          enableExtensionUpdateCheck = false;
+          enableUpdateCheck = false;
+          userSettings = {
+            "telemetry.telemetryLevel" = "off";
+          };
+        };
+        LaTeX = {
+          extensions = with pkgs.vscode-extensions; [
+            james-yu.latex-workshop
+          ];
+          userSettings = commonUserSettings;
+        };
+        Nix = {
+          extensions =
+            with pkgs.vscode-extensions;
+            [
+              jnoortheen.nix-ide
+            ]
+            ++ commonExtensions;
+          userSettings = commonUserSettings;
+        };
+        React-Native = {
+          extensions =
+            with pkgs.vscode-extensions;
+            [
+              aaron-bond.better-comments
+              davidanson.vscode-markdownlint
+              dbaeumer.vscode-eslint
+              esbenp.prettier-vscode
+              # expo.vscode-expo-tools
+              johnpapa.vscode-peacock
+              # kruemelkatze.vscode-dashboard
+              mikestead.dotenv
+              # streetsidesoftware.code-spell-checker-french-reforme
+              wix.vscode-import-cost
+              yoavbls.pretty-ts-errors
+            ]
+            ++ commonExtensions;
+          userSettings = commonUserSettings;
         };
       };
     };
-  };
 }
