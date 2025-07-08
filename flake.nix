@@ -18,6 +18,10 @@
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    millennium = {
+      url = "git+https://github.com/SteamClientHomebrew/Millennium?ref=next";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

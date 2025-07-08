@@ -96,7 +96,12 @@
   hardware.xone.enable = true;
   hardware.cpu.amd.ryzen-smu.enable = true; # https://github.com/svenlange2/Ryzen-5800x3d-linux-undervolting
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      inputs.millennium.overlays.default
+    ];
+  };
 
   environment = {
     plasma6.excludePackages = with pkgs.kdePackages; [
@@ -210,6 +215,7 @@
   programs.thunderbird.enable = true;
   programs.steam = {
     enable = true;
+    package = pkgs.steam-millennium;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
