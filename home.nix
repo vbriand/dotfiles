@@ -1,13 +1,13 @@
 {
   config,
   pkgs,
-  zen-browser,
+  inputs,
   ...
 }:
 
 {
   imports = [
-    zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.beta
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -188,13 +188,35 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/youtube-anti-translate/latest.xpi";
           installation_mode = "force_installed";
         };
+        "firefox-extension@steamdb.info" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/steam-database/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "{1be309c5-3e4f-4b99-927d-bb500eb4fa88}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/augmented-steam/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "{dbac9680-d559-4cd4-9765-059879e8c467}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/igraal/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "{188e9a6d-0e71-49ad-b1f2-0b78519512e0}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/dealabs/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "firefox@tampermonkey.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/tampermonkey/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "{EDB6A15C-5F8C-4531-92FA-98E988CF233C}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/wanteeed/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "Tab-Session-Manager@sienori" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/tab-session-manager/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
-      # Dealabs
-      # DeepL
-      # SpotiAds
-      # Tab Session Manager
-      # Tampermonkey
-      # wanteeed
     };
   };
 }

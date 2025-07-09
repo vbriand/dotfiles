@@ -30,7 +30,6 @@
       chaotic,
       disko,
       home-manager,
-      zen-browser,
       nixpkgs,
       ...
     }@inputs:
@@ -116,7 +115,7 @@
         valou = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
-          extraSpecialArgs = { inherit zen-browser; };
+          extraSpecialArgs = { inherit inputs; };
           modules = [ ./home.nix ];
         };
       };
