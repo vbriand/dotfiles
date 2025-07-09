@@ -95,6 +95,7 @@
         "editor.formatOnSave" = true;
         "terminal.integrated.allowChords" = false;
         "workbench.colorTheme" = "Winter is Coming (Dark Blue)";
+        "workbench.iconTheme" = "material-icon-theme";
       };
     in
     {
