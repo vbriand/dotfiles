@@ -142,12 +142,6 @@
         wayland-utils # Wayland utilities
         wget
         wl-clipboard # Command-line copy/paste utilities for Wayland
-        #zen-browser.packages."x86_64-linux".default.override {
-        #  policies = {
-        #    DisableAppUpdate = true;
-        #    DisableTelemetry = true;
-        #  };
-        #}
       ]
       ++ [ inputs.ghostty.packages.${system}.default ];
     variables = {

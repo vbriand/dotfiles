@@ -163,6 +163,7 @@
         Cryptomining = true;
         Fingerprinting = true;
       };
+      SearchSuggestEnabled = true;
       ExtensionSettings = {
         "firefox@betterttv.net" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/betterttv/latest.xpi";
@@ -212,9 +213,74 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/wanteeed/latest.xpi";
           installation_mode = "force_installed";
         };
-        "Tab-Session-Manager@sienori" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/tab-session-manager/latest.xpi";
-          installation_mode = "force_installed";
+      };
+      SearchEngines = {
+        Add = [
+          {
+            Alias = "@np";
+            Description = "Search in NixOS Packages";
+            IconURL = "https://nixos.org/favicon.ico";
+            Method = "GET";
+            Name = "NixOS Packages";
+            URLTemplate = "https://search.nixos.org/packages?from=0&size=200&sort=relevance&type=packages&query={searchTerms}";
+          }
+          {
+            Alias = "@no";
+            Description = "Search in NixOS Options";
+            IconURL = "https://nixos.org/favicon.ico";
+            Method = "GET";
+            Name = "NixOS Options";
+            URLTemplate = "https://search.nixos.org/options?from=0&size=200&sort=relevance&type=packages&query={searchTerms}";
+          }
+          {
+            Alias = "@w";
+            Description = "Search in Wikipedia (en)";
+            IconURL = "https://wikipedia.org/static/favicon/wikipedia.ico";
+            Method = "GET";
+            Name = "Wikipedia EN";
+            URLTemplate = "https://www.wikipedia.org/search-redirect.php?family=wikipedia&search={searchTerms}&language=en&go=Go";
+          }
+          {
+            Alias = "@wfr";
+            Description = "Search in Wikipedia (fr)";
+            IconURL = "https://wikipedia.org/static/favicon/wikipedia.ico";
+            Method = "GET";
+            Name = "Wikipedia FR";
+            URLTemplate = "https://www.wikipedia.org/search-redirect.php?family=wikipedia&search={searchTerms}&language=fr&go=Go";
+          }
+          {
+            Alias = "@yt";
+            Description = "Search in Youtube";
+            IconURL = "https://www.youtube.com/s/desktop/33ae93e9/img/logos/favicon.ico";
+            Method = "GET";
+            Name = "Youtube";
+            URLTemplate = "https://www.youtube.com/results?search_query={searchTerms}";
+          }
+        ];
+        Remove = [
+          "Bing"
+          "Wikipedia (en)"
+        ];
+      };
+    };
+    profiles = {
+      valentin = {
+        isDefault = true;
+        settings = {
+          "services.sync.engine.workspaces" = true;
+          "zen.welcome-screen.seen" = true;
+          "zen.workspaces.container-specific-essentials-enabled" = true;
+          "zen.workspaces.continue-where-left-off" = true;
+        };
+        extensions = {
+          force = true;
+          settings = {
+            "uBlock0@raymondhill.net".settings = {
+              advancedUserEnabled = true;
+              hiddenSettings.userResourcesLocation = "https://raw.githubusercontent.com/pixeltris/TwitchAdSolutions/f5594de4ef5eadd8d3aa156c24cbc53f17ab606c/video-swap-new/video-swap-new-ublock-origin.js";
+              user-filters = "twitch.tv##+js(twitch-videoad)";
+            };
+          };
         };
       };
     };
