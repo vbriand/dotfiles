@@ -94,7 +94,6 @@
 
   hardware.i2c.enable = true; # Allow changing the monitor's brightness
   hardware.xone.enable = true;
-  hardware.cpu.amd.ryzen-smu.enable = true; # https://github.com/svenlange2/Ryzen-5800x3d-linux-undervolting
 
   nixpkgs = {
     config.allowUnfree = true;
