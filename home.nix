@@ -213,6 +213,10 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/wanteeed/latest.xpi";
           installation_mode = "force_installed";
         };
+        "twitchnosub@besuper.com" = {
+          install_url = "https://github.com/besuper/TwitchNoSub/releases/latest/download/TwitchNoSub-firefox.0.9.2.xpi";
+          installation_mode = "force_installed";
+        };
       };
       SearchEngines = {
         Add = [
