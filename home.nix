@@ -256,6 +256,22 @@
             URLTemplate = "https://search.nixos.org/options?channel=unstable&from=0&size=200&sort=relevance&type=packages&query={searchTerms}";
           }
           {
+            Alias = "@pc";
+            Description = "Search in PCGamingWiki";
+            IconURL = "https://static.pcgamingwiki.com/favicons/pcgamingwiki.png";
+            Method = "GET";
+            Name = "PCGamingWiki";
+            URLTemplate = "https://www.pcgamingwiki.com/w/index.php?search={searchTerms}&title=Special%3ASearch";
+          }
+          {
+            Alias = "@pdb";
+            Description = "Search in ProtonDB";
+            IconURL = "https://www.protondb.com/sites/protondb/images/site-logo.svg";
+            Method = "GET";
+            Name = "ProtonDB";
+            URLTemplate = "https://www.protondb.com/search?q={searchTerms}";
+          }
+          {
             Alias = "@w";
             Description = "Search in Wikipedia (en)";
             IconURL = "https://wikipedia.org/static/favicon/wikipedia.ico";
