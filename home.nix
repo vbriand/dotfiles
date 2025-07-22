@@ -226,7 +226,7 @@
             IconURL = "https://nixos.org/favicon.ico";
             Method = "GET";
             Name = "NixOS Packages";
-            URLTemplate = "https://search.nixos.org/packages?from=0&size=200&sort=relevance&type=packages&query={searchTerms}";
+            URLTemplate = "https://search.nixos.org/packages?channel=unstable&from=0&size=200&sort=relevance&type=packages&query={searchTerms}";
           }
           {
             Alias = "@no";
@@ -234,7 +234,7 @@
             IconURL = "https://nixos.org/favicon.ico";
             Method = "GET";
             Name = "NixOS Options";
-            URLTemplate = "https://search.nixos.org/options?from=0&size=200&sort=relevance&type=packages&query={searchTerms}";
+            URLTemplate = "https://search.nixos.org/options?channel=unstable&from=0&size=200&sort=relevance&type=packages&query={searchTerms}";
           }
           {
             Alias = "@w";
