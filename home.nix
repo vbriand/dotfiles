@@ -78,25 +78,43 @@
     # EDITOR = "emacs";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [ inputs.nix-vscode-extensions.overlays.default ];
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.vscode =
     let
-      commonExtensions = with pkgs.vscode-extensions; [
+      commonExtensions = with pkgs.nix-vscode-extensions.vscode-marketplace; [
         johnpapa.winteriscoming
-        # leodevbro.blockman
+        leodevbro.blockman
         pkief.material-icon-theme
         streetsidesoftware.code-spell-checker
         tuttieee.emacs-mcx
       ];
-      commonUserSettings = {
-        "editor.formatOnSave" = true;
-        "terminal.integrated.allowChords" = false;
-        "workbench.colorTheme" = "Winter is Coming (Dark Blue)";
-        "workbench.iconTheme" = "material-icon-theme";
-      };
+      commonUserSettings =
+        let
+          blockmanSettings = {
+            "editor.inlayHints.enabled" = "off";
+            "editor.guides.indentation" = false;
+            "editor.guides.bracketPairs" = false;
+            "editor.wordWrap" = "off";
+            "diffEditor.wordWrap" = "off";
+            "workbench.colorCustomizations" = {
+              "editor.lineHighlightBorder" = "#9fced11f";
+              "editor.lineHighlightBackground" = "#1073cf2d";
+            };
+          };
+        in
+        {
+          "editor.formatOnSave" = true;
+          "terminal.integrated.allowChords" = false;
+          "workbench.colorTheme" = "Winter is Coming (Dark Blue)";
+          "workbench.iconTheme" = "material-icon-theme";
+        }
+        // blockmanSettings;
     in
     {
       enable = true;
@@ -109,14 +127,14 @@
           };
         };
         LaTeX = {
-          extensions = with pkgs.vscode-extensions; [
+          extensions = with pkgs.nix-vscode-extensions.vscode-marketplace; [
             james-yu.latex-workshop
           ];
           userSettings = commonUserSettings;
         };
         Nix = {
           extensions =
-            with pkgs.vscode-extensions;
+            with pkgs.nix-vscode-extensions.vscode-marketplace;
             [
               jnoortheen.nix-ide
             ]
@@ -125,17 +143,17 @@
         };
         React-Native = {
           extensions =
-            with pkgs.vscode-extensions;
+            with pkgs.nix-vscode-extensions.vscode-marketplace;
             [
               aaron-bond.better-comments
               davidanson.vscode-markdownlint
               dbaeumer.vscode-eslint
               esbenp.prettier-vscode
-              # expo.vscode-expo-tools
+              expo.vscode-expo-tools
               johnpapa.vscode-peacock
-              # kruemelkatze.vscode-dashboard
+              kruemelkatze.vscode-dashboard
               mikestead.dotenv
-              # streetsidesoftware.code-spell-checker-french-reforme
+              streetsidesoftware.code-spell-checker-french-reforme
               wix.vscode-import-cost
               yoavbls.pretty-ts-errors
             ]

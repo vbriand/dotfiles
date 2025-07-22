@@ -22,6 +22,7 @@
       url = "git+https://github.com/SteamClientHomebrew/Millennium?ref=next";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs =
