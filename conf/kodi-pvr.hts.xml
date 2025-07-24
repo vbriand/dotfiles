@@ -1,0 +1,29 @@
+<settings version="2">
+    <setting id="kodi_addon_instance_name">libreelec</setting>
+    <setting id="kodi_addon_instance_enabled" default="true">true</setting>
+    <setting id="host">libreelec</setting>
+    <setting id="https" default="true">false</setting>
+    <setting id="http_port" default="true">9981</setting>
+    <setting id="htsp_port" default="true">9982</setting>
+    <setting id="user" default="true" />
+    <setting id="pass" default="true" />
+    <setting id="connect_timeout" default="true">10</setting>
+    <setting id="response_timeout" default="true">5</setting>
+    <setting id="wol_mac" default="true" />
+    <setting id="streaming_profile" default="true" />
+    <setting id="streaming_http" default="true">false</setting>
+    <setting id="pretuner_enabled" default="true">false</setting>
+    <setting id="total_tuners" default="true">2</setting>
+    <setting id="pretuner_closedelay" default="true">10</setting>
+    <setting id="stream_readchunksize" default="true">64</setting>
+    <setting id="stream_stalled_threshold" default="true">10</setting>
+    <setting id="autorec_approxtime" default="true">0</setting>
+    <setting id="autorec_maxdiff" default="true">15</setting>
+    <setting id="autorec_use_regex" default="true">false</setting>
+    <setting id="dvr_ignore_duplicates" default="true">true</setting>
+    <setting id="dvr_priority" default="true">2</setting>
+    <setting id="dvr_lifetime2" default="true">15</setting>
+    <setting id="dvr_dubdetect" default="true">0</setting>
+    <setting id="epg_async" default="true">true</setting>
+    <setting id="dvr_playstatus" default="true">true</setting>
+</settings>

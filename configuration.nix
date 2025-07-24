@@ -119,8 +119,6 @@
         git
         hardinfo2 # System information and benchmarks for Linux systems
         heroic
-        kodi-wayland
-        kodiPackages.pvr-hts
         kdePackages.kcalc # Calculator
         kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
         kdePackages.sddm-kcm # Configuration module for SDDM

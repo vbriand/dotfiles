@@ -46,6 +46,7 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    ".kodi/userdata/addon_data/pvr.hts/instance-settings-1.xml".source = conf/kodi-pvr.hts.xml;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -323,5 +324,9 @@
         };
       };
     };
+  };
+  programs.kodi = {
+    enable = true;
+    package = pkgs.kodi-gbm.withPackages (addOns: with addOns; [ pvr-hts ]);
   };
 }
