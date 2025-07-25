@@ -242,6 +242,14 @@
       SearchEngines = {
         Add = [
           {
+            Alias = "@hm";
+            Description = "Search in Home Manager options";
+            IconURL = "https://mynixos.com/favicon-32x32.png";
+            Method = "GET";
+            Name = "Home Manager";
+            URLTemplate = "https://mynixos.com/search?q=home-manager+{searchTerms}";
+          }
+          {
             Alias = "@np";
             Description = "Search in NixOS Packages";
             IconURL = "https://nixos.org/favicon.ico";
