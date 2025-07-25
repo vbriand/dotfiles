@@ -22,6 +22,11 @@
       url = "git+https://github.com/SteamClientHomebrew/Millennium?ref=next";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 

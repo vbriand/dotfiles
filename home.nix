@@ -7,6 +7,7 @@
 
 {
   imports = [
+    inputs.plasma-manager.homeManagerModules.plasma-manager
     inputs.zen-browser.homeModules.beta
   ];
 
@@ -328,5 +329,28 @@
   programs.kodi = {
     enable = true;
     package = pkgs.kodi-gbm.withPackages (addOns: with addOns; [ pvr-hts ]);
+  };
+  programs.plasma = {
+    enable = true;
+    workspace = {
+      wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/SafeLanding/contents/images/5120x2880.jpg";
+    };
+    panels = [
+      {
+        screen = 0;
+        floating = true;
+        location = "bottom";
+        hiding = "autohide";
+        widgets = [
+          "org.kde.plasma.kickoff"
+          "org.kde.plasma.pager"
+          "org.kde.plasma.icontasks"
+          "org.kde.plasma.marginsseparator"
+          "org.kde.plasma.systemtray"
+          "org.kde.plasma.digitalclock"
+          "org.kde.plasma.showdesktop"
+        ];
+      }
+    ];
   };
 }
