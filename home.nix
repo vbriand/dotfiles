@@ -251,18 +251,18 @@
           }
           {
             Alias = "@np";
-            Description = "Search in NixOS Packages";
+            Description = "Search in NixOS packages";
             IconURL = "https://nixos.org/favicon.ico";
             Method = "GET";
-            Name = "NixOS Packages";
+            Name = "NixOS packages";
             URLTemplate = "https://search.nixos.org/packages?channel=unstable&from=0&size=200&sort=relevance&type=packages&query={searchTerms}";
           }
           {
             Alias = "@no";
-            Description = "Search in NixOS Options";
+            Description = "Search in NixOS options";
             IconURL = "https://nixos.org/favicon.ico";
             Method = "GET";
-            Name = "NixOS Options";
+            Name = "NixOS options";
             URLTemplate = "https://search.nixos.org/options?channel=unstable&from=0&size=200&sort=relevance&type=packages&query={searchTerms}";
           }
           {
