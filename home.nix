@@ -323,6 +323,21 @@
             };
           };
         };
+        containersForce = true;
+        containers = {
+          personal = {
+            name = "Personal";
+            color = "blue";
+            icon = "fingerprint";
+            id = 1;
+          };
+          work = {
+            name = "Work";
+            color = "orange";
+            icon = "briefcase";
+            id = 2;
+          };
+        };
       };
     };
   };
