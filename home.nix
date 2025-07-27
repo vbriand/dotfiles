@@ -376,4 +376,45 @@
       }
     ];
   };
+  programs.git = {
+    enable = true;
+    userName = "Valentin Briand";
+    userEmail = "678530+vbriand@users.noreply.github.com";
+    signing = {
+      key = "2708255FFF876F95";
+      signByDefault = true;
+    };
+    aliases = {
+      br = "branch";
+      ci = "commit";
+      co = "checkout";
+      st = "status";
+      # Stash only untracked files
+      su = "!f() { git stash; git stash -u; git stash pop stash@{1}; }; f";
+      # Stash changes not staged for commit and untracked files
+      snsu = "!f() { git stash push --staged; git stash -u; git stash pop stash@{1}; }; f";
+      # Stash changes not staged for commit
+      sns = "!f() { git stash push --staged; git stash; git stash pop stash@{1}; }; f";
+      sw = "switch";
+      wta = "worktree add";
+      wtl = "worktree list";
+      wtr = "worktree remove";
+    };
+    extraConfig = {
+      core = {
+        editor = "emacs";
+      };
+      init.defaultBranch = "master";
+      pull.rebase = true;
+      push.autoSetupRemote = true; # https://stackoverflow.com/a/17096880/10927329
+    };
+    includes = [
+      {
+        path = conf/gitconfig_mazarine;
+        condition = "hasconfig:remote.*.url:git@gitlab.mzrn.net:*/**";
+      }
+    ];
+    # https://discourse.nixos.org/t/home-manager-what-is-the-best-way-to-use-a-long-global-gitignore-file/24986
+    ignores = import conf/gitignore_global.nix;
+  };
 }
