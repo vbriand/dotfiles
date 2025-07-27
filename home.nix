@@ -266,6 +266,14 @@
             URLTemplate = "https://search.nixos.org/options?channel=unstable&from=0&size=200&sort=relevance&type=packages&query={searchTerms}";
           }
           {
+            Alias = "@nw";
+            Description = "Search in NixOS wiki";
+            IconURL = "https://nixos.org/favicon.ico";
+            Method = "GET";
+            Name = "NixOS wiki";
+            URLTemplate = "https://wiki.nixos.org/w/index.php?search={searchTerms}&title=Special%3ASearch&wprov=acrw1_-1";
+          }
+          {
             Alias = "@pc";
             Description = "Search in PCGamingWiki";
             IconURL = "https://static.pcgamingwiki.com/favicons/pcgamingwiki.png";
