@@ -195,7 +195,7 @@
       "wheel" # Enable ‘sudo’ for the user.
       "networkmanager"
       "i2c"
-      # "gamemode"
+      "gamemode"
     ];
     #   packages = with pkgs; [
     #     tree
@@ -211,26 +211,30 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
-  #programs.gamemode = {
-  #  enable = true;
-  #  enableRenice = true;
-  #  settings = {
-  #    general = {
-  #      softrealtime = "auto";
-  #      renice = 10;
-  #    };
-  #    custom = {
-  #      start = [
-  #	  "${pkgs.ddcutil}/bin/ddcutil -d 1 setvcp 10 90"
-  #	  "${pkgs.libnotify}/bin/notify-send 'GameMode started'"
-  #	];
-  #      end = [
-  #	  "${pkgs.libnotify}/bin/notify-send 'GameMode ended'"
-  #	  "${pkgs.ddcutil}/bin/ddcutil -d 1 setvcp 10 44"
-  #	];
-  #    };
-  #  };
-  #};
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+    settings = {
+      general = {
+        softrealtime = "auto";
+        renice = 10;
+      };
+      custom = {
+        start = [
+          "${pkgs.ddcutil}/bin/ddcutil -d 1 setvcp 10 90"
+          "${pkgs.wireplumber}/bin/wpctl set-volume 53 .65"
+          "${pkgs.power-profiles-daemon}/bin/powerprofilesctl set performance"
+          "${pkgs.libnotify}/bin/notify-send 'GameMode started'"
+        ];
+        end = [
+          "${pkgs.libnotify}/bin/notify-send 'GameMode ended'"
+          "${pkgs.wireplumber}/bin/wpctl set-volume 53 .5"
+          "${pkgs.power-profiles-daemon}/bin/powerprofilesctl set balanced"
+          "${pkgs.ddcutil}/bin/ddcutil -d 1 setvcp 10 44"
+        ];
+      };
+    };
+  };
   programs.gamescope.enable = true;
   # programs.streamcontroller.enable = true;
   programs.dconf.enable = true;
