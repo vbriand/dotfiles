@@ -368,19 +368,28 @@
     };
     panels = [
       {
-        screen = 0;
-        floating = true;
-        location = "bottom";
+        location = "top";
+        height = 30;
         hiding = "autohide";
+        screen = 0;
         widgets = [
           "org.kde.plasma.kickoff"
           "org.kde.plasma.pager"
-          "org.kde.plasma.icontasks"
           "org.kde.plasma.marginsseparator"
+          "org.kde.plasma.panelspacer"
           "org.kde.plasma.systemtray"
           "org.kde.plasma.digitalclock"
           "org.kde.plasma.showdesktop"
         ];
+      }
+      {
+        floating = true;
+        lengthMode = "fit";
+        location = "bottom";
+        height = 52;
+        hiding = "autohide";
+        screen = 0;
+        widgets = [ "org.kde.plasma.icontasks" ];
       }
     ];
   };
