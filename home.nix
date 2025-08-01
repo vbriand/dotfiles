@@ -377,8 +377,9 @@
           "org.kde.plasma.pager"
           "org.kde.plasma.marginsseparator"
           "org.kde.plasma.panelspacer"
-          "org.kde.plasma.systemtray"
           "org.kde.plasma.digitalclock"
+          "org.kde.plasma.panelspacer"
+          "org.kde.plasma.systemtray"
           "org.kde.plasma.showdesktop"
         ];
       }
