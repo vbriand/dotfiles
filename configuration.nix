@@ -85,10 +85,6 @@
     flatpak.enable = true;
     # silverbullet.enable = true;
     ratbagd.enable = true;
-    syncthing = {
-      enable = true;
-      openDefaultPorts = true;
-    };
     xserver.enable = true; # Enable the X11 windowing system.
   };
 
@@ -133,7 +129,6 @@
         snapper
         snapper-gui
         steamtinkerlaunch
-        syncthingtray
         tealdeer
         teamspeak3
         wayland-utils # Wayland utilities
@@ -157,7 +152,6 @@
       };
       enable = true;
     };
-    syncthing.environment.STNODEFAULTFOLDER = "true"; # Don't create default ~/Sync folder
   };
 
   nix.settings.experimental-features = [
@@ -294,8 +288,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 22000 ]; # 22000 = Syncthing
+  networking.firewall.allowedUDPPorts = [ 22000 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

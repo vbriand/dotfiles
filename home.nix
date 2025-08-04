@@ -435,4 +435,33 @@
     # https://discourse.nixos.org/t/home-manager-what-is-the-best-way-to-use-a-long-global-gitignore-file/24986
     ignores = import conf/gitignore_global.nix;
   };
+  services.syncthing = {
+    enable = true;
+    extraOptions = [ "--no-default-folder" ]; # Don't create default ~/Sync folder
+    tray.enable = true;
+    settings = {
+      devices = {
+        Gringotts = {
+          id = "ANJBTRA-BXCRHCH-HDMWTWZ-3F2BRR3-SS7R4TW-KNM3L7F-WTTDOTP-TCASSAG";
+        };
+      };
+      folders = {
+        "Steam grid" = {
+          devices = [ "Gringotts" ];
+          id = "cjnuh-vcntm";
+          label = "Steam grid images";
+          path = "~/.steam/steam/userdata/11938770/config/grid";
+        };
+      };
+      options = {
+        # Disable global discovery to prevent making the IP address public
+        # https://docs.syncthing.net/users/faq.html#should-i-keep-my-device-ids-secret
+        globalAnnounceEnabled = false;
+        relaysEnabled = false;
+        urAccepted = -1; # Refuse to submit anonymous usage data
+      };
+    };
+    overrideDevices = true;
+    overrideFolders = true;
+  };
 }
