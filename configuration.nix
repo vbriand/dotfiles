@@ -121,7 +121,6 @@
         kdePackages.partitionmanager # Optional Manage the disk devices, partitions and file systems on your computer
         # kdotool # Enable automatic page switching for streamcontroller
         lact # GPU metrics and overclocking
-        ludusavi
         obsidian
         piper # Mouse configuration GUI
         protonplus
