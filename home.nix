@@ -425,6 +425,8 @@
       init.defaultBranch = "master";
       pull.rebase = true;
       push.autoSetupRemote = true; # https://stackoverflow.com/a/17096880/10927329
+      rebase.autoSquash = true;
+      rebase.autoStash = true;
     };
     includes = [
       {
