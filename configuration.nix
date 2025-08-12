@@ -156,6 +156,8 @@
     };
   };
 
+  chaotic.mesa-git.enable = true;
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -202,7 +204,11 @@
   programs.thunderbird.enable = true;
   programs.steam = {
     enable = true;
-    package = pkgs.steam-millennium;
+    package = pkgs.steam-millennium.override {
+      extraPkgs = chaotic: [
+        chaotic.gamescope_git
+      ];
+    };
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
