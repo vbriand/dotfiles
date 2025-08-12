@@ -85,7 +85,10 @@
     flatpak.enable = true;
     # silverbullet.enable = true;
     ratbagd.enable = true;
-    xserver.enable = true; # Enable the X11 windowing system.
+    xserver = {
+      enable = true; # Enable the X11 windowing system.
+      excludePackages = [ pkgs.xterm ];
+    };
   };
 
   hardware.i2c.enable = true; # Allow changing the monitor's brightness
