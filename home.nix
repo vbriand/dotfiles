@@ -324,6 +324,8 @@
       valentin = {
         isDefault = true;
         settings = {
+          "browser.translations.alwaysTranslateLanguages" = "de,it,es";
+          "browser.translations.neverTranslateLanguages" = "fr,en";
           "services.sync.engine.workspaces" = true;
           "zen.welcome-screen.seen" = true;
           "zen.workspaces.container-specific-essentials-enabled" = true;
