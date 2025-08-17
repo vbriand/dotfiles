@@ -242,6 +242,14 @@
       SearchEngines = {
         Add = [
           {
+            Alias = "@hltb";
+            Description = "Search in How Long To Beat";
+            IconURL = "https://howlongtobeat.com/img/icons/favicon-96x96.png";
+            Method = "GET";
+            Name = "How Long To Beat";
+            URLTemplate = "https://howlongtobeat.com/?q={searchTerms}";
+          }
+          {
             Alias = "@hm";
             Description = "Search in Home Manager options";
             IconURL = "https://mynixos.com/favicon-32x32.png";
