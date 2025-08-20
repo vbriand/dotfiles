@@ -242,6 +242,22 @@
       SearchEngines = {
         Add = [
           {
+            Alias = "@enfr";
+            Description = "Search in WordReference (EN to FR)";
+            IconURL = "https://www.wordreference.com/favicon.ico";
+            Method = "GET";
+            Name = "WordReference (EN to FR)";
+            URLTemplate = "https://www.wordreference.com/redirect/translation.aspx?w={searchTerms}&dict=enfr";
+          }
+          {
+            Alias = "@fren";
+            Description = "Search in WordReference (FR to EN)";
+            IconURL = "https://www.wordreference.com/favicon.ico";
+            Method = "GET";
+            Name = "WordReference (FR to EN)";
+            URLTemplate = "https://www.wordreference.com/redirect/translation.aspx?w={searchTerms}&dict=fren";
+          }
+          {
             Alias = "@hltb";
             Description = "Search in How Long To Beat";
             IconURL = "https://howlongtobeat.com/img/icons/favicon-96x96.png";
