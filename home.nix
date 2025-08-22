@@ -315,7 +315,7 @@
           }
           {
             Alias = "@w";
-            Description = "Search in Wikipedia (en)";
+            Description = "Search in Wikipedia (EN)";
             IconURL = "https://wikipedia.org/static/favicon/wikipedia.ico";
             Method = "GET";
             Name = "Wikipedia EN";
@@ -323,7 +323,7 @@
           }
           {
             Alias = "@wfr";
-            Description = "Search in Wikipedia (fr)";
+            Description = "Search in Wikipedia (FR)";
             IconURL = "https://wikipedia.org/static/favicon/wikipedia.ico";
             Method = "GET";
             Name = "Wikipedia FR";
