@@ -178,6 +178,10 @@
     pulse.enable = true;
   };
 
+  # Enable the RealtimeKit system service, which hands out realtime scheduling priority to user processes on demand.
+  # This is especially useful for PipeWire to avoid crackling noises on high system load.
+  security.rtkit.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
