@@ -182,6 +182,8 @@
   # This is especially useful for PipeWire to avoid crackling noises on high system load.
   security.rtkit.enable = true;
 
+  documentation.doc.enable = false;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
