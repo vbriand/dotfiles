@@ -314,6 +314,14 @@
             URLTemplate = "https://www.protondb.com/search?q={searchTerms}";
           }
           {
+            Alias = "@uhs";
+            Description = "Search in Universal Hint System";
+            IconURL = "https://static.uhs-hints.com/images/crystal-ball-transparent-16.png";
+            Method = "GET";
+            Name = "Universal Hint System";
+            URLTemplate = "https://www.uhs-hints.com/hints/search.php?search={searchTerms}";
+          }
+          {
             Alias = "@w";
             Description = "Search in Wikipedia (EN)";
             IconURL = "https://wikipedia.org/static/favicon/wikipedia.ico";
