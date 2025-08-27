@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     millennium = {
-      url = "git+https://github.com/SteamClientHomebrew/Millennium";
+      url = "git+https://github.com/vbriand/Millennium";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     plasma-manager = {
