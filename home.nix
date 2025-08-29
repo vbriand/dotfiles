@@ -471,6 +471,7 @@
     # https://discourse.nixos.org/t/home-manager-what-is-the-best-way-to-use-a-long-global-gitignore-file/24986
     ignores = import conf/gitignore_global.nix;
   };
+  programs.ghostty.enableFishIntegration = true;
   services.syncthing = {
     enable = true;
     extraOptions = [ "--no-default-folder" ]; # Don't create default ~/Sync folder
