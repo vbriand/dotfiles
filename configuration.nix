@@ -115,6 +115,8 @@
         caprine
         discord
         emacs-nox
+        fishPlugins.done
+        fishPlugins.tide
         git
         hardinfo2 # System information and benchmarks for Linux systems
         heroic
