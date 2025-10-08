@@ -7,7 +7,7 @@
 
 {
   imports = [
-    inputs.plasma-manager.homeManagerModules.plasma-manager
+    inputs.plasma-manager.homeModules.plasma-manager
     inputs.zen-browser.homeModules.beta
   ];
 
