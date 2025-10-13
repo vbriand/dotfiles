@@ -48,6 +48,7 @@
   # plain files is through 'home.file'.
   home.file = {
     ".kodi/userdata/addon_data/pvr.hts/instance-settings-1.xml".source = conf/kodi-pvr.hts.xml;
+    ".config/ghostty/config".source = conf/ghostty;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
