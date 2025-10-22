@@ -134,7 +134,7 @@
         snapper-gui
         steamtinkerlaunch
         tealdeer
-        teamspeak3
+        teamspeak6-client
         wayland-utils # Wayland utilities
         wget
         wl-clipboard # Command-line copy/paste utilities for Wayland
