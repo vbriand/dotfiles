@@ -431,29 +431,31 @@
   };
   programs.git = {
     enable = true;
-    userName = "Valentin Briand";
-    userEmail = "678530+vbriand@users.noreply.github.com";
     signing = {
       key = "2708255FFF876F95";
       signByDefault = true;
     };
-    aliases = {
-      br = "branch";
-      ci = "commit";
-      co = "checkout";
-      st = "status";
-      # Stash only untracked files
-      su = "!f() { git stash; git stash -u; git stash pop stash@{1}; }; f";
-      # Stash changes not staged for commit and untracked files
-      snsu = "!f() { git stash push --staged; git stash -u; git stash pop stash@{1}; }; f";
-      # Stash changes not staged for commit
-      sns = "!f() { git stash push --staged; git stash; git stash pop stash@{1}; }; f";
-      sw = "switch";
-      wta = "worktree add";
-      wtl = "worktree list";
-      wtr = "worktree remove";
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Valentin Briand";
+        email = "678530+vbriand@users.noreply.github.com";
+      };
+      alias = {
+        br = "branch";
+        ci = "commit";
+        co = "checkout";
+        st = "status";
+        # Stash only untracked files
+        su = "!f() { git stash; git stash -u; git stash pop stash@{1}; }; f";
+        # Stash changes not staged for commit and untracked files
+        snsu = "!f() { git stash push --staged; git stash -u; git stash pop stash@{1}; }; f";
+        # Stash changes not staged for commit
+        sns = "!f() { git stash push --staged; git stash; git stash pop stash@{1}; }; f";
+        sw = "switch";
+        wta = "worktree add";
+        wtl = "worktree list";
+        wtr = "worktree remove";
+      };
       core = {
         editor = "emacs";
       };
