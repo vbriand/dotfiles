@@ -477,7 +477,6 @@
   programs.ghostty.enableFishIntegration = true;
   services.syncthing = {
     enable = true;
-    extraOptions = [ "--no-default-folder" ]; # Don't create default ~/Sync folder
     tray.enable = true;
     settings = {
       devices = {
