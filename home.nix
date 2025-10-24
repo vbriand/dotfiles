@@ -364,6 +364,7 @@
           "browser.translations.alwaysTranslateLanguages" = "de,it,es";
           "browser.translations.neverTranslateLanguages" = "fr,en";
           "services.sync.engine.workspaces" = true;
+          "zen.view.compact.enable-at-startup" = true;
           "zen.welcome-screen.seen" = true;
           "zen.workspaces.container-specific-essentials-enabled" = true;
           "zen.workspaces.continue-where-left-off" = true;
