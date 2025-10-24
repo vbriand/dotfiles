@@ -242,13 +242,11 @@
       custom = {
         start = [
           "${pkgs.ddcutil}/bin/ddcutil -d 1 setvcp 10 90"
-          "${pkgs.wireplumber}/bin/wpctl set-volume 53 .65"
           "${pkgs.power-profiles-daemon}/bin/powerprofilesctl set performance"
           "${pkgs.libnotify}/bin/notify-send 'GameMode started'"
         ];
         end = [
           "${pkgs.libnotify}/bin/notify-send 'GameMode ended'"
-          "${pkgs.wireplumber}/bin/wpctl set-volume 53 .5"
           "${pkgs.power-profiles-daemon}/bin/powerprofilesctl set balanced"
           "${pkgs.ddcutil}/bin/ddcutil -d 1 setvcp 10 44"
         ];
