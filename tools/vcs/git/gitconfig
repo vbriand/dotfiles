@@ -14,6 +14,7 @@
 	excludesfile = ~/.gitignore_global
 
 [alias]
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f" # Remove local branches that have been merged to master
 	br = branch
 	ci = commit
 	co = checkout
