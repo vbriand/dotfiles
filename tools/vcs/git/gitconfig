@@ -17,6 +17,13 @@
 	br = branch
 	ci = commit
 	co = checkout
+	fl = log -u # fl = filelog. Show the commits history of a file
+	l = log --oneline --decorate
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s" --decorate --date=relative
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s" --decorate --date=short
+	ll = ls --numstat
+	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s" --decorate # %Cblue\\ [%cn]
 	st = status
 	su = "!f() {		\
     git stash;			\
