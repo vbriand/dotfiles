@@ -36,7 +36,10 @@
 	sw = switch
 	wta = worktree add
 	wtl = worktree list
-	wtr = worktree remove
+	wtr = "!f() {						\
+    BRANCH=$(git -C \"$1\" branch --show-current 2>/dev/null);	\
+    git worktree remove \"$1\" && git branch -d \"$BRANCH\"; 	\
+    	}; f"
 
 [init]
 	defaultBranch = master
